@@ -1,0 +1,7 @@
+.active .sidebar {
+    background-color: theme('colors.primary'); 
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

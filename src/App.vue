@@ -1,24 +1,35 @@
-<style>
-  .sidebar{
-    padding: 20px;
-  }
-</style>
+<script lang="ts">
+import { defineComponent } from "vue";
+import SideBarMenu from "@/components/SideBarMenu.vue";
+import "./assets/tailwind.css";
+
+export default defineComponent({
+  name: "App",
+  setup() {
+    return true;
+  },
+  components: {
+    SideBarMenu,
+  },
+});
+</script>
+
 <template>
   <div>
-    <div class="sidebar col-md-3 col-lg-2 d-md-block">
-      <sideBar />
+    <div class="container flex justify-center mt-5">
+      <SideBarMenu />
     </div>
 
-    <div class="col-lg-12">
-      <router-view></router-view>
+    <div class="container mt-5">
+      <Suspense>
+        <template #default>
+          <router-view></router-view>
+        </template>
+        <template #fallback>
+          <p>Carregando Requisição...</p>
+        </template>
+      </Suspense>
     </div>
   </div>
 </template>
 
-<script setup>
-import sideBar from "./components/sidebar.vue";
-import Inicio from "./components/inicio.vue";
-
-
-
-</script>
